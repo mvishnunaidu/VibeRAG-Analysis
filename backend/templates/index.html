@@ -15,21 +15,21 @@
 
     <style>
         :root {
-            --bg-dark: #0a0a0f;
-            --card-bg: rgba(20, 22, 35, 0.55);
-            --card-border: rgba(255, 255, 255, 0.1);
+            --bg-dark: #050505;
+            --card-bg: rgba(13, 14, 18, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
             --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --accent-purple: #a855f7;
-            --accent-purple-glow: rgba(168, 85, 247, 0.5);
-            --accent-blue: #0ea5e9;
-            --accent-blue-glow: rgba(14, 165, 233, 0.5);
-            --accent-pink: #f43f5e;
-            --accent-pink-glow: rgba(244, 63, 94, 0.5);
-            --accent-green: #10b981;
-            --glow-cyan: #06b6d4;
-            --glass-blur: blur(20px);
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --text-secondary: #9ca3af;
+            --accent-purple: #c084fc;
+            --accent-purple-glow: rgba(192, 132, 252, 0.6);
+            --accent-blue: #38bdf8;
+            --accent-blue-glow: rgba(56, 189, 248, 0.6);
+            --accent-pink: #fb7185;
+            --accent-pink-glow: rgba(251, 113, 133, 0.6);
+            --accent-green: #34d399;
+            --glow-cyan: #22d3ee;
+            --glass-blur: blur(40px);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -60,9 +60,8 @@
             color: var(--text-primary);
             overflow-x: hidden;
             min-height: 100vh;
-            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #0f172a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: radial-gradient(circle at 50% 0%, #171033, #050505 50%);
+            background-size: 100% 100%;
             background-attachment: fixed;
         }
 
@@ -115,11 +114,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 1.5rem;
-            background: rgba(13, 16, 28, 0.6);
+            background: rgba(10, 11, 15, 0.65);
             backdrop-filter: var(--glass-blur);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
         }
 
         .logo-area {
@@ -230,16 +229,16 @@
             background: var(--card-bg);
             backdrop-filter: var(--glass-blur);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            padding: 1.75rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             transition: var(--transition-smooth);
             position: relative;
         }
 
         .glass-panel:hover {
-            box-shadow: 0 15px 45px rgba(168, 85, 247, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.02);
-            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
 
@@ -781,31 +780,34 @@
             display: flex;
             flex-direction: column;
             max-width: 85%;
-            padding: 1rem;
-            border-radius: 18px;
-            line-height: 1.5;
-            font-size: 0.9rem;
-            animation: bubble-fade 0.3s ease-out;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            padding: 1.25rem;
+            border-radius: 16px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            animation: bubble-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         @keyframes bubble-fade {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(10px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .message-user {
             align-self: flex-end;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(59, 130, 246, 0.25));
-            border: 1px solid rgba(139, 92, 246, 0.3);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(139, 92, 246, 0.4);
             border-bottom-right-radius: 4px;
             color: #ffffff;
+            box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.1);
         }
 
         .message-assistant {
             align-self: flex-start;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(20, 22, 30, 0.6);
             border: 1px solid var(--card-border);
+            border-left: 3px solid var(--glow-cyan);
             border-bottom-left-radius: 4px;
             color: var(--text-primary);
         }
@@ -1213,19 +1215,20 @@
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
+            filter: blur(120px);
+            opacity: 0.6;
             animation: floatOrb 20s infinite alternate ease-in-out;
+            mix-blend-mode: screen;
         }
-        .orb-1 { width: 500px; height: 500px; background: #a855f7; top: -10%; left: -10%; animation-duration: 25s; }
-        .orb-2 { width: 600px; height: 600px; background: #f43f5e; bottom: -20%; right: -10%; animation-duration: 30s; }
-        .orb-3 { width: 400px; height: 400px; background: #0ea5e9; top: 40%; left: 40%; animation-duration: 22s; }
-        .orb-4 { width: 350px; height: 350px; background: #10b981; bottom: 10%; left: 20%; animation-duration: 28s; }
+        .orb-1 { width: 800px; height: 800px; background: rgba(168, 85, 247, 0.3); top: -20%; left: -20%; animation-duration: 25s; }
+        .orb-2 { width: 900px; height: 900px; background: rgba(56, 189, 248, 0.25); bottom: -30%; right: -20%; animation-duration: 30s; }
+        .orb-3 { width: 600px; height: 600px; background: rgba(16, 185, 129, 0.15); top: 30%; left: 30%; animation-duration: 22s; }
+        .orb-4 { width: 700px; height: 700px; background: rgba(244, 63, 94, 0.2); bottom: 10%; left: 10%; animation-duration: 28s; }
 
         @keyframes floatOrb {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(100px, 50px) scale(1.2); }
-            100% { transform: translate(-50px, 100px) scale(0.9); }
+            50% { transform: translate(120px, 80px) scale(1.1); }
+            100% { transform: translate(-80px, 120px) scale(0.9); }
         }
     </style>
 </head>
